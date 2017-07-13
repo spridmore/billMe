@@ -5,11 +5,11 @@ angular
     $scope.locateByZip = [];
     $scope.zip = "";
     $scope.repDataArray = [];
+    $scope.congressError = false;
 
     congressPersonService.geoLocate().then(function (response) {
       $scope.locate = response;
     });
-
 
     $scope.sendLocation = function () {
       congressPersonService.findReps($scope.locate.data.zip_code).then(function (response) {
@@ -19,6 +19,12 @@ angular
 
     $scope.sendZip = function () {
       congressPersonService.findReps($scope.zip).then(function (response) {
+        if($scope.zip == ""){
+          $scope.congressError = true;
+        }
+        else {
+          $scope.congressError = false;
+        }
         $scope.locateByZip = response.data.results;   
       });
     }

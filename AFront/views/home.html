@@ -1,2 +1,17 @@
-<h1>home page</h1>
-
+<div class="container">
+  <h1>home page</h1>
+  <div class="logIn">
+  <span>Login In</span>
+  User name<input type="text" placeholder="user name">
+  Password<input type="text" placeholder="password">
+  <button class="btn btn-primary" ng-click="logIn()">Submit</button>
+</div>
+<div class="logIn">
+<span>Sign up with an account</span>
+First Name<input type="text" ng-model="firstName">
+Last Name<input type="text" ng-model="lastName">
+User name <input type="text" ng-model="userName">
+Password<input type="text" ng-model="password">
+<button class="btn btn-primary" ng-click="addUser()">Sign Up</button>
+</div>
+</div>

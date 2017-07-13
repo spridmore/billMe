@@ -9,59 +9,59 @@ using System.Net.Http;
 
 namespace Bills_Project_Backend.Controllers
 {
-  public class Comment {
-    public int Id {get; set;}
-    public string Body {get; set;}
-    public string Author {get; set;}
-    public string commentBillId {get; set;}
-  }
+    public class User {
+      public string FirstName {get; set;}
+      public string LastName {get; set;}
+      public string UserName {get; set;}
+      public string Password {get; set;}
+      public int UserId {get; set;}
+    }
 
+    
     [Route("api/[controller]")]
-    public class CommentsController : Controller
+    public class UserController : Controller
     {
-      private readonly CommentContext _context;
-      public CommentsController(CommentContext context) {
+      private readonly UserContext _context;
+      public UserController(UserContext context) {
         _context = context;
       }
-        // GET api/comments
+        // GET api/user
         [HttpGet]
-        public IEnumerable<Comment> Get()
+        public IEnumerable<User> Get()
         {
           _context.SaveChanges();
-          return _context.Comments;
+          return _context.Users;
         }
 
-        // GET api/comments/5
+        // GET api/user/5
         [HttpGet("{id}")]
-        public Comment Get(int id)
+        public User Get(int id)
         {             
-            foreach(Comment x in _context.Comments)
-             if(x.Id == id) {
+            foreach(User x in _context.Users)
+             if(x.UserId == id) {
               return x;
              }
              return null;
         } 
 
-        // POST api/comments
+        // POST api/user
         [HttpPost]
-        public void Post([FromBody]Comment value)
-        {
-          // _context.Comments.Comment.commentBillId = 
-          
+        public void Post([FromBody]User value)
+        {          
           _context.Add(value);
           _context.SaveChanges();
         }
 
-        // PUT api/comments/5
+        // PUT api/user/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/comments/5
+        // DELETE api/user/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
-    }
-}
+
+    }}

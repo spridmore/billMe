@@ -1,88 +1,72 @@
 
-<!--<h1>Active Bills</h1>
-<h3>Bills may have passed neither, one, or both chambers. All are awaiting presidential approval. </h3>
-<input type="text" ng-model="subject">
-<button class="progress" ng-click="sendSubject()">Search</button> by subject-->
-<!--<ul class="billCard" ng-repeat="z in pending">
-  <li>Official Id: {{z.bill_id}}</li>
-  <li>Bill description: {{z.official_title}}</li>
-  <li>Sponsoring Congress Person: {{z.sponsor.title}}. {{z.sponsor.first_name}} {{z.sponsor.last_name}}</li>
-  <li><a href="{{z.urls.govtrack}}">Continue</a> your search to read the actual bill and to view its current status.</li>
-</ul>
-
-<ul class="billCard" ng-repeat="d in subjectReturned">
-  <li>Official Id: {{d.bill_id}}</li>
-  <li>Bill description: {{d.official_title}}</li>
-  <li>Sponsoring Congress Person: {{d.sponsor.title}}. {{d.sponsor.first_name}} {{d.sponsor.last_name}}</li>
-  <li><a href="{{d.urls.govtrack}}">Continue</a> your search to read the actual bill and to view its current status.</li>
-</ul>-->
-<div class="passedBody container-fluid">
+<span class="passedBody container-fluid">
   <div class="col-xs-8">
     <h2 class="passedHeader">Active Bills</h2>
     <h4 class="passedHeader">Bills may have passed neither, one, or both chambers. All are awaiting presidential approval.</h4>
     <div class="passedHeader">
       <input class="form-control" type="text" ng-model="subject">
       <button class="searchBillBtn btn btn-primary" ng-click="sendSubject()">Search Bills</button>
+    <div style="color: red" class="billError" ng-show="billError">
+      <p>Please enter a search query</p>
+    </div>
     </div>
   </div>
 
-
+  <!--pending bill w/o search query-->
   <div class="clearer">
     <div class="cardHolder col-sm-8">
       <dl class="billCard" ng-repeat="z in pending">
         <dt>Bill title:</dt>
-        <dd>{{z.official_title}}
-          <dd>
-            <dt>Sponsoring Congress Person:</dt>
-            <dd>{{z.sponsor.title}}. {{z.sponsor.first_name}} {{z.sponsor.last_name}}</dd>
-            <span>  
+        <dd>{{z.official_title}}</dd>
+        <dt>Sponsoring Congress Person:</dt>
+        <dd>{{z.sponsor.title}}. {{z.sponsor.first_name}} {{z.sponsor.last_name}}</dd>
+        <span>  
           <button class="btn btn-default dropDownBtn" ng-click="show = !show">Bill Details</button>
           <button class="btn btn-default dropDownBtn" ng-click="showShow = !showShow">Continue Reading</button>
         </span>
-            <div ng-show="show">
-              <hr class="divisor">
-              <dt>Official Id:</dt>
-              <dd>{{z.bill_id}}</dd>
-              <dt>Date of most recent version:</dt>
-              <dd>{{z.last_version_on}}</dd>
-              <dt>Date introduced:</dt>
-              <dd>{{z.introduced_on}}</dd>
-            </div>
-            <div ng-show="showShow">
-              <hr class="divisor">
-              <dt><a href="{{z.last_version.urls.html}}">Read</a> the bill in its entirety.</dt>
-              <dt><a href="{{z.urls.govtrack}}">Dig</a> into the details.</dt>
-            </div>
+          <div ng-show="show">
+            <hr class="divisor">
+            <dt>Official Id:</dt>
+            <dd>{{z.bill_id}}</dd>
+            <dt>Date of most recent version:</dt>
+            <dd>{{z.last_version_on}}</dd>
+            <dt>Date introduced:</dt>
+            <dd>{{z.introduced_on}}</dd>
+          </div>
+          <div ng-show="showShow">
+            <hr class="divisor">
+            <dt><a href="{{z.last_version.urls.html}}">Read</a> the bill in its entirety.</dt>
+            <dt><a href="{{z.urls.govtrack}}">Dig</a> into the details.</dt>
+          </div>
       </dl>
+
+      <!--pending bills w/ search query-->
       <dl class="billCard" ng-repeat="z in subjectReturned">
         <dt>Bill title:</dt>
-        <dd>{{z.official_title}}
-          <dd>
-            <dt>Sponsoring Congress Person:</dt>
-            <dd>{{z.sponsor.title}}. {{z.sponsor.first_name}} {{z.sponsor.last_name}}</dd>
-            <span>  
+        <dd>{{z.official_title}}</dd>
+        <dt>Sponsoring Congress Person:</dt>
+        <dd>{{z.sponsor.title}}. {{z.sponsor.first_name}} {{z.sponsor.last_name}}</dd>
+        <span>  
           <button class="btn btn-default dropDownBtn" ng-click="show = !show">Bill Details</button>
           <button class="btn btn-default dropDownBtn" ng-click="showShow = !showShow">Continue Reading</button>
         </span>
-            <div ng-show="show">
-              <hr class="divisor">
-              <dt>Official Id:</dt>
-              <dd>{{z.bill_id}}</dd>
-              <dt>Chamber:</dt>
-              <dd>{{z.chamber}}</dd>
-              <dt>Date enacted:</dt>
-              <dd>{{z.history.enacted_at}}</dd>
-              <dt>Date introduced:</dt>
-              <dd>{{z.introduced_on}}</dd>
-            </div>
-            <div ng-show="showShow">
-              <hr class="divisor">
-              <dt><a href="{{z.last_version.urls.html}}">Read</a> the bill in its entirety.</dt>
-              <dt><a href="{{z.urls.govtrack}}">Dig</a> into the details.</dt>
-            </div>
+        <div ng-show="show">
+          <hr class="divisor">
+          <dt>Official Id:</dt>
+          <dd>{{z.bill_id}}</dd>
+          <dt>Chamber:</dt>
+          <dd>{{z.chamber}}</dd>
+          <dt>Date enacted:</dt>
+          <dd>{{z.history.enacted_at}}</dd>
+          <dt>Date introduced:</dt>
+          <dd>{{z.introduced_on}}</dd>
+        </div>
+        <div ng-show="showShow">
+          <hr class="divisor">
+          <dt><a href="{{z.last_version.urls.html}}">Read</a> the bill in its entirety.</dt>
+          <dt><a href="{{z.urls.govtrack}}">Dig</a> into the details.</dt>
+        </div>
       </dl>
     </div>
-    </dl>
   </div>
-</div>
-</div>
+</span>

@@ -1,6 +1,6 @@
 var app = angular.module("billProject", ["ui.router"]);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise("/");
 
@@ -8,7 +8,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state("home", {
       url: "/",
       templateUrl: "./views/home.html",
-      controller: "homeController"
+      controller: "userController"
     })
     .state("passedBill", {
       url: "/passedBill",
@@ -25,7 +25,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "./views/congressPerson.html",
       controller: "congressPersonController"
     })
-    
-
 
 })

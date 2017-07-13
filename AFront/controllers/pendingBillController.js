@@ -5,6 +5,7 @@ angular
     $scope.pending = [];
     $scope.subjectReturned = [];
     $scope.subject = "";
+    
     pendingBillService.getPendingBill().then(function (response) {
       $scope.pending = response.data.results;
     });
@@ -14,5 +15,11 @@ angular
       $scope.subjectReturned = response.data.results;
       })
       $scope.pending = []
+      if($scope.subject == ""){
+        $scope.billError = true
+      }
+      else{
+        $scope.billError = false;
+      }
     }
   });

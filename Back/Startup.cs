@@ -32,7 +32,7 @@ namespace Bills_Project_Backend
     public void ConfigureServices(IServiceCollection services)
     {
      services.AddDbContext<CommentContext>(opt => opt.UseInMemoryDatabase());
-
+     services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase());
       services.AddCors();
       // Add framework services.
       services.AddMvc();

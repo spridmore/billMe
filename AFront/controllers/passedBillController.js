@@ -5,32 +5,55 @@ angular
     $scope.passed = [];
     $scope.subjectReturned = [];
     $scope.subject = "";
+    $scope.billComment = "";
+    $scope.commentHolder = [];
     $scope.returnedComments = [];
-    // $scope.bob = "";
+    $scope.comments = "";
+    $scope.userName = "";
+    $scope.billComment = "";
+    $scope.billError = false;
+    $scope.billId = "";
+    $scope.value = "";
 
     passedBillService.getPassedBill().then(function (response) {
       $scope.passed = response.data.results;
     })
 
-    passedBillService.returnComment().then(function (response) {
-      $scope.comments = response.data;
-    })
+
+    $scope.showComments = function (billId) {
+      passedBillService.returnComment().then(function (response) {
+        
+        
+        $scope.returnedComments = [];
+        for (var i = 0; i < response.data.length; i++) {
+          if (billId == response.data[i].commentBillId) {
+            $scope.returnedComments.push(response.data[i])
+          }
+        }
+      })
+    }   
 
     $scope.sendSubjectPassed = function () {
       passedBillService.sendSubject($scope.subject).then(function (response) {
         $scope.subjectReturned = response.data.results;
       });
       $scope.passed = [];
+      if($scope.subject == ""){
+        $scope.billError = true
+      }
+      else{
+        $scope.billError = false;
+      }
     }
 
-    $scope.submitComment = function (bill) {
-      for (var i = 0; i < $scope.passed.length; i++) {
-      var commentBillId = $scope.passed[i].bill_id;
-      if ($scope.bob = commentBillId) {
-      passedBillService.submitComment(bill.comment, bill.author, commentBillId).then(function (response) {
-      })
-     }
-   }
- }
-})
-    
+    $scope.submitComment = function (comment, userName, billId) {
+      passedBillService.submitComment(comment, userName, billId).then(function (response) {
+      $scope.showComments(billId)
+      $scope.billComment = "";
+      $scope.userName = "";
+     
+      
+    })
+  }
+ 
+  })

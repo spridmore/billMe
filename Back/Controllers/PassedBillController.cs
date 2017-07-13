@@ -95,9 +95,7 @@ namespace Bills_Project_Backend.Controllers
     public Page page { get; set; }
   }
 
-  public class BillId {
-    public int billIdentification {get; set;}
-  }
+
 
   [Route("api/[controller]")]
   public class PassedBillController : Controller

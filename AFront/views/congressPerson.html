@@ -1,69 +1,69 @@
-<div class="col-sm-12">
-  <div class="headerCard col-xs-2">
-    <h2 class="passedHeader">Find 'em.</h2>
-    <h2 class="passedHeader">Tell 'em.</h2>
+<div class="container ">
+<div class="row congressRow">
+  <div class="headerCard visible-lg col-xs-4">
+    <div class="passedHeaderCongress">Find 'em</div>
+    <div class="passedHeaderCongress">Tell 'em</div>
   </div>
-  <!--<div class="hidden-xs col-xs-5">-->
-    <div class="bracketDiv col-sm-1"><img class="bracketHeight" src="./pics/bracket.png" alt=""></div>
-    <div class="col-md-3 subTitle">
-      <h4 class="sub">Locate the officials acting as your congressional voice and let them know how you feel.</h4>
-    </div>
-  <!--</div>-->
+  <div class="bracketDiv visible-lg col-sm-1">
+    <!--<hr width="2" height="400">-->
+    <!--<img class="bracketHeight" src="./pics/bracket.png" alt="">-->
+  </div>
+  <div class="visible-lg col-md-3 subTitle">
+    <h4 class="animated bounce infinite sub">Locate the officials acting as your congressional voice and let them know how you feel</h4>
+  </div>
 </div>
-<div class="findRepBtn col-sm-6 col-sm-offset-2">Start by
-  <button class="btn btn-warning" ng-click="sendLocation()">using my current location</button> or by using a
+
+<!--user options-->
+<div class="findRepBtn col-sm-10 ">Start by using your
+  <button class="animated bounce infinite btn btn-warning" ng-click="sendLocation()">current location</button> or by using a
   <button class="btn btn-warning" ng-click="sendZip()" ng-click="repData()"> zip code</button>
-  <input type="text" ng-model="zip">
+  <input class="zip form-control" type="text" ng-model="zip">
 </div>
+<div style="color: red" class="congressError" ng-show="congressError">
+  <p>Please enter a valid U.S. zip code</p>
+</div>
+
+<!--card container and cards for representatives-->
 <div class="col-sm-12 cardHolderReps">
     <dl ng-class="{repBlue : z.party=='D', repRed : z.party=='R'}" class="col-sm-4 billCardReps" ng-repeat="z in locateByZip">
       <div class="repCardTop">
-      <div class="repFloat">
+        <div class="repFloat">
           <dt>Last name</dt>
           <dd>{{z.last_name}}</dd>
           <dt>First name:</dt>
           <dd>{{z.first_name}}</dd>
-      </div>
-      <div class="repFloat">
-        <dt>Chamber:</dt>
-        <dd ng-show="z.title=='Rep'">House</dd> 
-        <dd ng-show="z.title=='Sen'">Senate</dd> 
-        <dt>Party:</dt> 
-        <dd ng-show="z.party=='R'">Republican</dd>
-        <dd ng-show="z.party=='D'">Democrat</dd>
-      </div>
-      <div class="repFloat">
-        <div>
-        <dt>Term start:</dt>
-        <dd>{{z.term_start}}</dd>
         </div>
-        <div>
-        <dt>Term end:</dt>
-        <dd>{{z.term_end}}</dd>
+        <div class="repFloat">
+          <dt>Chamber:</dt>
+          <dd ng-show="z.title=='Rep'">House</dd> 
+          <dd ng-show="z.title=='Sen'">Senate</dd> 
+          <dt>Party:</dt> 
+          <dd ng-show="z.party=='R'">Republican</dd>
+          <dd ng-show="z.party=='D'">Democrat</dd>
+        </div>
+        <div class="repFloat">
+          <div>
+          <dt>Term start:</dt>
+          <dd>{{z.term_start}}</dd>
+          </div>
+          <div>
+          <dt>Term end:</dt>
+          <dd>{{z.term_end}}</dd>
+          </div>
         </div>
       </div>
-      </div>
-      <dt><button class="btn btn-primary repBtn" ng-click="showme = !showme">Contact</button></dt>
+      <dt>
+        <button class="btn btn-primary repBtn" ng-click="showme = !showme">Contact</button>
+      </dt>
       <div class="contactInfo" ng-show="showme">
-      <dt>Twitter: </dt>
-      <dd><a class="twitterColor" href="http://twitter.com/{{z.twitter_id}}">{{z.twitter_id}}</a></dd>
-      <dt>Email</dt>
-      <dd>{{z.oc_email}}</dd>
-      <dt>Phone</dt>
-      <dd>{{z.phone}}</dd>
+        <dt>Twitter: </dt>
+        <dd><a class="twitterColor" href="http://twitter.com/{{z.twitter_id}}">{{z.twitter_id}}</a></dd>
+        <dt>Email</dt>
+        <dd>{{z.oc_email}}</dd>
+        <dt>Phone</dt>
+        <dd>{{z.phone}}</dd>
       </div>
     </dl>
   </div>
 </div>
 
-
-
-<!--
-<ul ng-repeat="z in repDataArray">
-  <li>Last name {{z.last_name}}</li>
-  <li>Last name: {{z.first_name}}</li>
-  <li>Chamber: {{z.title}} Party: {{z.party}}</li>
-  <li>Term start: {{z.term_start}}</li>
-  <li>Term end: {{z.term_end}}</li>
-
-</ul>-->

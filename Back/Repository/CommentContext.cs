@@ -10,6 +10,4 @@ namespace Bills_Project_Backend
     }
     public DbSet<Comment> Comments { get; set; }
   }
-
-
 }
