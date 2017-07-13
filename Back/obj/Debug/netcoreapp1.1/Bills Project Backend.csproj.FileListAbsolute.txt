@@ -1,0 +1,8 @@
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/bin/Debug/netcoreapp1.1/Bills Project Backend.deps.json
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/bin/Debug/netcoreapp1.1/Bills Project Backend.runtimeconfig.json
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/bin/Debug/netcoreapp1.1/Bills Project Backend.runtimeconfig.dev.json
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/bin/Debug/netcoreapp1.1/Bills Project Backend.dll
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/bin/Debug/netcoreapp1.1/Bills Project Backend.pdb
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/obj/Debug/netcoreapp1.1/Bills Project Backend.AssemblyInfo.cs
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/obj/Debug/netcoreapp1.1/Bills Project Backend.dll
+/Users/hspain/Desktop/Spring2017/Phase 2/Bills Project Backend/obj/Debug/netcoreapp1.1/Bills Project Backend.pdb
