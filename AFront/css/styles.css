@@ -4,12 +4,32 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Montserrat'
+}
+
 ul {
   list-style-type: none;
 }
 
+dt {
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .background {
-  background-color: #abc;
+  /*background-color: #abc;*/
+  background-color: lightgrey;
+  animation: pulse 2s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-color: black;
+  }
+  100% {
+    background-color: lightgrey;
+  }
 }
 
 .clearer {
@@ -31,9 +51,9 @@ ul {
 }
 
 .bracketHeight {
-  height: 130%;
-  margin-left: 130%;
-  margin-top: -37%;
+  height: 127px;
+  margin-left: 44px;
+  margin-top: -42%;
 }
 
 .passedHeader {
@@ -41,17 +61,33 @@ ul {
   margin-left:23%;
 }
 
+.passedHeaderCongress {
+  clear: both;
+  font-size: 50px;
+  margin-left:23%;
+}
+
+.congressRow {
+  margin-left: -27px;
+  margin-top: 11%
+}
+
 .headerCard {
   clear: left;
-  margin-left: 12%;
+  /*margin-left: 12%;*/
 }
 
 .subTitle {
-  margin-top: 2.3%;
-  font-size: 190%;
+  margin-top: 2%;
+  font-size: 32PX;
   color: #24386C;
-  margin-left: -5%;
-  width: 70%;
+  margin-left: -10%;
+  width: 74%;
+}
+
+
+.form-control {
+  width: 600px;
 }
 
 .subTitleSmall {
@@ -59,15 +95,16 @@ ul {
 }
 
 .sub{
-    font-size: 111%;
-    margin-top: -2%;
-    margin-left: 6%;
-    width: 50%;
+  font-size: 114%;
+  margin-top: -1.5%;
+  margin-left: 7%;
+  width: 63%;
 }
+
 .cardHolderReps {
-  margin-left: 12%;
-  margin-top: 3%;
-  clear:both;
+  margin-left: -4%;
+    margin-top: 3%;
+    clear: both;
 }
 
 .repCardTop {
@@ -87,18 +124,20 @@ ul {
 .cardHolder {
   margin-left: 13%;
   margin-top: 1%;
+  font-size: 18px;
 }
 
 .billCardReps {
   border: 3px solid black;
   border-style: groove;
   padding: 1% 2% 1% 4%;
-  border-radius: 130px 10px 130px 0px;
+  border-radius: 2%;
   background-color: white;
-  font-size: 90%;
-  margin-right: 1%;
+  font-size: 17px;
+  margin-right: 5%;
   text-align: center;
-  width: 25%;
+  width: 45%;
+  margin-top: 28px;
 }
 
 .repRed {
@@ -115,10 +154,54 @@ ul {
   padding: 8px 8px 8px 16px;
   border-radius: 30px 10px 30px 0px;
   background-color: white;
+  animation-duration: 4s;
+  animation-name: slideup;
+  /*-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+-o-transform: translateZ(0);
+transform: translateZ(0);*/
+}
+
+@keyframes slideup {
+  0% {
+    transform: translate3d(0px, -3000px, 0px)
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px)        
+  }
+  /*from {
+    margin-bottom: 100%;
+    margin-left: 300%;
+    margin-top: 100%;
+    width: 300%; 
+    -webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+-o-transform: translateZ(0);
+transform: translateZ(0);
+  }
+
+  to {
+    margin-bottom: 0%;
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 100%;
+    -webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+-o-transform: translateZ(0);
+transform: translateZ(0);
+  }*/
+}
+
+.zip {
+  width: 150px;
+  display: unset;
 }
 
 .navBar {
-  margin: 3% 0 1% 14%;
+  margin: 3% 0 -1% 14%;
 }
 
 .navBarLine {
@@ -143,21 +226,24 @@ ul {
 }
 
 .findRepBtn {
-  clear:left;
-  font-size: 130%;
-  margin-top: 2%;
+  clear: left;
+  font-size: 27px;
+  margin-top: 5%;
+  padding: 3px;
+  margin-left: 74px;
 }
 
 .repFloat {
   float: left;
   margin-right: 5%;
-  /*clear: left;*/
 }
 
 .btn-warning {
-    color: white;
-    background-color: #2C81BE;
-    border-color: #2C81BE;
+  color: white;
+  background-color: #2C81BE;
+  border-color: #2C81BE;
+  font-size: 18px;
+  padding: 3px;
 }
 
 .twitterColor {
@@ -169,3 +255,31 @@ ul {
   margin-left: 13%;
   margin-top: 2%
 }
+
+.comments {
+  border: 3px dashed black;
+  border-radius: 1%;
+  padding: 1%;
+  margin: 1% 1% 1% 0%;
+}
+
+.congressError {
+  margin-top: 110px;
+  clear: both;
+  margin-left: 56%;
+  font-size: 14px;
+}
+
+.billError {
+  color: red;
+  float: right;
+  margin-right: 65%;
+  margin-top: 15px;
+}
+
+.logIn {
+  clear: left;
+  margin-top: 4%;
+  margin-left: 6%;
+}
+
