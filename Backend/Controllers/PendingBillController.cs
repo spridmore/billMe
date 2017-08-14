@@ -1,19 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net;
 
-namespace Bills_Project_Backend.Controllers
+namespace Bills_Project.Controllers
 {
 
   public class History
   {
-    
     public bool active { get; set; }
     public string active_at { get; set; }
     public bool awaiting_signature { get; set; }
@@ -41,7 +38,7 @@ namespace Bills_Project_Backend.Controllers
     public string govtrack { get; set; }
   }
 
-  public class Urls2
+  public class UrlOptions
   {
     public string html { get; set; }
     public string pdf { get; set; }
@@ -54,7 +51,7 @@ namespace Bills_Project_Backend.Controllers
     public string issued_on { get; set; }
     public string version_name { get; set; }
     public string bill_version_id { get; set; }
-    public Urls2 urls { get; set; }
+    public UrlOptions urls { get; set; }
     public int pages { get; set; }
   }
 
@@ -117,6 +114,5 @@ namespace Bills_Project_Backend.Controllers
       var results = client.GetStringAsync("https://congress.api.sunlightfoundation.com/bills/search?query="  + subject + "&history.active=true&order=last_action_at").Result;
       return JsonConvert.DeserializeObject(results);
     }
-
   }
 }
